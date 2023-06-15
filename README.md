@@ -1,12 +1,15 @@
-# M3Exam: A Multilingual , Multimodal, Multilevel Benchmark for LLMs
+# M3Exam: A Multilingual 🌏, Multimodal 🖼, Multilevel 📈 Benchmark for LLMs
 
 This is the repository for [M3Exam: A Multilingual, Multimodal, Multilevel Benchmark for Examining Large Language Models](https://arxiv.org/pdf/2306.05179.pdf).
 
 TL;DR: We introduce M3Exam, a novel benchmark sourced from real and official human exam questions for evaluating LLMs in a multilingual, multimodal, and multilevel context.
 
+![image](./images/m3exam-examples.jpg)
+
+
 ## Data
 ### Access the data
-* You can download the data from [here](https://drive.google.com/file/d/1eREETRklmXJLXrNPTyHxQ3RFdPhq_Nes/view?usp=sharing).
+* You can download the data from [here](https://cutt.ly/m3exam-data).
 * The downloaded folder will be encrypted (to prevent some automatic crawling scripts). Please get the password from the bottom of this page.
 * After unzipping the file, you will see the following file structure:
 ```
@@ -61,6 +64,16 @@ python main.py \
 * then you can quickly check by running `quick_run.sh`, which will run on 10 English questions and produce `english-pred.json` in the corresponding output folder
 * to evaluate, you can also run `eval.sh` to check the performance on this 10 examples!
 * to run on more data, you can refer to `run.sh` for more detailed settings
+```
+python main.py \
+--setting zero-shot \
+--model chat \
+--use_api \
+--selected_langs "['english']" \
+--selected_levels "['low', 'mid', 'high']" \
+--num_samples all \
+--api_key #put your key here
+```
     * specify the languages you want to run through `--selected_langs`
     * running on all questions, set `--num_samples all`
 
